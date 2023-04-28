@@ -1,0 +1,38 @@
+{
+  "name": "Da Den Bu #10",
+  "description": "Da Den Bu is wrong.",
+  "image": "https://olbm.mypinata.cloud/ipfs/Qma6p2MdD9NveE211KxYmsf9W6jyVFZ3AVA7RqSqiidHDT/10.png",
+  "dna": "f9b47719fde9495e042d7930910f115ab90f5e41",
+  "edition": 10,
+  "date": 1682160210888,
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Pink"
+    },
+    {
+      "trait_type": "Face",
+      "value": "BCS"
+    },
+    {
+      "trait_type": "Eyebrows",
+      "value": "Line"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "X"
+    },
+    {
+      "trait_type": "Nose",
+      "value": "None"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Smile"
+    },
+    {
+      "trait_type": "ACC",
+      "value": "None"
+    }
+  ]
+}
