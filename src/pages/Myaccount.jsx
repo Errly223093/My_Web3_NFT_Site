@@ -69,7 +69,7 @@ const Myaccount = ({ account, users }) => {
         <input
           className="bg-gray-300 hover:bg-gray-400 m-1"
           name="network"
-          placeholder="NFT amount"
+          placeholder="NFT Id"
           onChange={(e) => setNftNum(e.target.value)}
           value={nftNum}
         />

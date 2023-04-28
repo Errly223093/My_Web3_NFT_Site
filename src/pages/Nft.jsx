@@ -22,7 +22,7 @@ const Nft = ({ account, users }) => {
   useEffect(() => {
     let interval;
     if (imgnum < 21) {
-      interval = setInterval(() => setImgnum(imgnum + 1), 500000); /////// 일부러 늘려놓음
+      interval = setInterval(() => setImgnum(imgnum + 1), 3000); /////// 일부러 늘려놓음
     }
 
     // no.21 되면 1로 돌아가기
