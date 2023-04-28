@@ -19,8 +19,8 @@ const NftPage = ({ page, mintedNft }) => {
       setNfts(); // 값이 있는 상태에서 실행하면X, 일부러 값을 비워줌
 
       // 토큰ID 값 생성
-      for (let i = 0; i < 10; i++) {
-        const tokenId = i + 1 + (p - 1) * 10;
+      for (let i = 0; i < 5; i++) {
+        const tokenId = i + 1 + (p - 1) * 5;
         // 3페이지라면, 3페이지 -1 = 2, 여기에 10 곱해서 20.
         // 20을 i + 1 문으로 1번씩 돌리면 21~30 까지의 토큰 id 를 적용할 수 있다.
         console.log(tokenId);
@@ -29,6 +29,7 @@ const NftPage = ({ page, mintedNft }) => {
         );
 
         nftArray.push({ tokenId, metadata: response.data });
+        console.log(nftArray);
       }
       setNfts(nftArray);
     } catch (error) {
@@ -44,12 +45,12 @@ const NftPage = ({ page, mintedNft }) => {
       pageArray.push(
         <button
           key={i}
-          className={`ml-8 text-xl font-bold ${
+          className={` ml-8 text-xl font-bold ${
             i + 1 === selectedPage ? "text-green-500" : "text-pivory"
           }`}
           onClick={onClickPage(i + 1)}
         >
-          {i + 1} <span className="text-base">페이지</span>
+          {i + 1} <span className>페이지</span>
         </button>
       );
     }
@@ -64,7 +65,7 @@ const NftPage = ({ page, mintedNft }) => {
 
   return (
     <div className="bg-gray-800 h-screen">
-      {pageComp()}
+      <div className="flex justify-center mb-8 pt-10">{pageComp()}</div>
       <div>
         <div>
           {nfts ? (
@@ -79,7 +80,7 @@ const NftPage = ({ page, mintedNft }) => {
               );
             })
           ) : (
-            <div className="text-2xl text-white">
+            <div className="text-2xl text-white pl-8 flex justify-center">
               <img
                 src={`${process.env.PUBLIC_URL}/images/byeonsache.png`}
                 alt=""

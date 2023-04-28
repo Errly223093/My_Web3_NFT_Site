@@ -76,12 +76,12 @@ const Crypto = ({ users, setUsers }) => {
 
   return (
     <div className="bg-gradient-to-b from-pivory to-sky-700 h-screen pt-10">
-      <Link to="https://www.binance.com/">
-        <div className="flex justify-center text-4xl pt-4">
-          Exchange - Binance
+      <div className="flex justify-center text-4xl pt-4">
+        Exchange - Binance
+        <Link to="https://www.binance.com/">
           <SiBinance size={36} className="ml-1 bg-yellow-300 rounded-xl" />
-        </div>
-      </Link>
+        </Link>
+      </div>
       <div className="flex justify-center text-2xl mt-5">
         {/* // BTC ETH 값 가져오기 */}
         {mainCryptoArray.map((v, i) => {

@@ -9,6 +9,7 @@ import Nft from "./pages/Nft";
 import Game from "./pages/Game";
 import Community from "./pages/Community";
 import Detail from "./pages/Detail";
+import Myaccount from "./pages/Myaccount";
 
 function App() {
   const [account, setAccount] = useState();
@@ -42,6 +43,10 @@ function App() {
           <Route path="/Game" element={<Game />} />
           <Route path="/Community" element={<Community />} />
           <Route path="/:tokenId" element={<Detail />} />
+          <Route
+            path="/Myaccount"
+            element={<Myaccount account={account} users={users} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Web3 from "web3";
+
 import { Link } from "react-router-dom";
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../web3.config";
 import NftPage from "../components/NftPage";
+import Web3 from "web3";
 
 const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
@@ -21,7 +22,7 @@ const Nft = ({ account, users }) => {
   useEffect(() => {
     let interval;
     if (imgnum < 21) {
-      interval = setInterval(() => setImgnum(imgnum + 1), 5000000); /////// 일부러 늘려놓음
+      interval = setInterval(() => setImgnum(imgnum + 1), 500000); /////// 일부러 늘려놓음
     }
 
     // no.21 되면 1로 돌아가기
@@ -31,24 +32,12 @@ const Nft = ({ account, users }) => {
     return () => clearInterval(interval);
   }, [imgnum]);
 
-  // nft 전송하기
-  const getTransferNft = async () => {
-    try {
-      if (!contract) return;
-      const response = await contract.methods
-        .safeTransferFrom(account, rcvdAccount, `${imgnum}`)
-        .transact();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   // nft 총량 가져오기
   const getTotalNft = async () => {
     try {
       const response = await contract.methods.totalNft().call();
       setTotalNft(response);
-      setPage(parseInt(parseInt(response) - 1) / 10 + 1);
+      setPage(parseInt(parseInt(response) - 1) / 5 + 1);
       // 페이지 구하는 공식
       // 10 - 1 = 9 / 10 = 0 + 1 = 1page
       // 31 - 1 = 30 / 10 = 3 + 1 = 4page
@@ -71,6 +60,7 @@ const Nft = ({ account, users }) => {
   // 내 nft 량
   const getMyNft = async () => {
     try {
+      if (!account) return;
       const response = await contract.methods.balanceOf(account).call();
       setMyNft(response);
     } catch (error) {
@@ -106,25 +96,28 @@ const Nft = ({ account, users }) => {
             </div>
             <div className=" text-pivory mr-52 pl-8">
               "INTP는 심리학적 평가 도구인 Myers-Briggs Type Indicator MBTI
-              에서의 성격 유형 중 하나로, Introverted, Intuitive, Thinking,
+              에서의 성격 유형 중 하나로, Introverted, iNtuitive, Thinking,
               Perceiving의 네 가지 요소로 이루어진 네 글자 코드입니다. INTP 성격
               유형의 사람들은 논리적이고 분석적이며 호기심이 많다는 것으로
               묘사됩니다. 복잡한 문제를 분석하고 근본 원리를 이해하려는
               자연스러운 성향을 가지고 있습니다. 독립적인 사고를 하는 편이며
-              상황을 도전적으로 바라보는 것을 좋아합니다. 가끔은 로봇, 자발적
-              아싸, 사회 부적응자라고 불리기도 합니다."
+              상황을 도전적으로 바라보는 것을 좋아합니다. 가끔은 마음이 따뜻한
+              로봇, 자발적 아싸, 사회 부적응자라고 불리기도 합니다."
+              <div className="mt-8">
+                INTP NFT 를 소유하고 당당하게 본인을 소개하세요 !
+              </div>
             </div>
             <div className="flex">
               <div className=" m-8 gap-6 text-pivory">
-                <div>총 민팅량</div>
+                <div>총 NFT</div>
                 <div>{totalNft}</div>
               </div>
               <div className=" m-8 gap-6 text-pivory">
-                <div>현재 민팅량</div>
+                <div>민팅량</div>
                 <div>{mintedNft}</div>
               </div>
               <div className=" m-8 gap-6 text-pivory">
-                <div>내 소유량</div>
+                <div>내 보유량</div>
                 <div>{myNft}</div>
               </div>
             </div>

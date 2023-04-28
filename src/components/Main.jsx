@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 function Main() {
   return (
-    <div className="bg-gradient-to-b from-pivory to-blue-900 h-screen">
+    <div className="bg-gradient-to-b from-pivory to-pblue h-screen">
+      <Link to="/Nft">
+        <button className="text-4xl font-bold text-pblue mt-20 pl-64">
+          Go to BCS NFT
+        </button>
+      </Link>
       <div className="p-64 flex flex-col text-xl font-bold justify-center pt-20">
         <div className="font-bold text-3xl">What is NFT ?</div>
         <div>
@@ -43,11 +48,6 @@ function Main() {
           transferred to your digital wallet. Make sure to keep your wallet
           secure since you hold the private key to your NFT.
         </div>
-        <Link to="/Nft">
-          <button className="text-4xl font-bold text-red-100 mt-20">
-            Click to Show BCS NFT
-          </button>
-        </Link>
       </div>
     </div>
   );

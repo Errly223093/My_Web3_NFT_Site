@@ -4,6 +4,7 @@ import { BsCoin } from "react-icons/bs";
 import { GrGamepad } from "react-icons/gr";
 import { CgCommunity } from "react-icons/cg";
 import { FaBitcoin, FaUikit } from "react-icons/fa";
+import { VscAccount } from "react-icons/vsc";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const Header = ({ account, setAccount }) => {
@@ -61,7 +62,12 @@ const Header = ({ account, setAccount }) => {
         </Link>
       </div>
       {account ? (
-        <div className="pr-4 font-bold">
+        <div className="font-bold text-xl flex mr-8">
+          <Link to="/Myaccount">
+            <button className="mr-4">
+              <VscAccount size={26} />
+            </button>
+          </Link>
           {account.substr(0, 4)}....
           {account.substr(account.length - 4, account.length)}
         </div>
