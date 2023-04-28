@@ -25,8 +25,6 @@ const Crypto = ({ users, setUsers }) => {
     });
   };
 
-  //
-
   // 다음 id값 지정
   const nextId = useRef(3);
 
@@ -75,7 +73,7 @@ const Crypto = ({ users, setUsers }) => {
   }, [count]);
 
   return (
-    <div className="bg-gradient-to-b from-pivory to-sky-700 h-screen pt-10">
+    <div className="bg-gradient-to-b from-pivory to-sky-700 max-h-screen pt-10">
       <div className="flex justify-center text-4xl pt-4">
         Exchange - Binance
         <Link to="https://www.binance.com/">
@@ -157,8 +155,8 @@ const Crypto = ({ users, setUsers }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center w-100 h-32"></div>
-      <div className="flex justify-center flex-col">
+      <div className="flex justify-center w-100 h-32 max-h-screen bg-sky-800"></div>
+      <div className="flex justify-center flex-col  max-h-screen bg-sky-800">
         <div className="flex justify-center">Regist your wallet address !</div>
         <div className="flex justify-center">
           <input
